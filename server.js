@@ -7,8 +7,6 @@ app.configure(function(){
   app.use(express.bodyParser());
 });
 
-//app.get('/employees/:id/reports', wines.findByManager);
-//app.get('/employees/:id', wines.findById);
 app.get('/matchratings', matches.findAll);	// Get list of all matches that have been rated
 app.get('/matchratings/:matchId', matches.findAllForOneMatch);	// Get all ratings for one match
 
