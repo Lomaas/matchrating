@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Bootstrap 101 Template</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Bootstrap -->
+    <link href="/services/ratings/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+    <script src="http://code.jquery.com/jquery.js"></script>
+    <script src="/services/ratings/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/services/ratings/js/cookies.js"></script>
+    <script> 
+      function persistentCookieTest () {
+        if (testPersistentCookie())
+          alert ("Persistent coookies are enabled")
+        else
+          alert ("Persistent coookies are not enabled");
+      }
+      //persistentCookieTest();
+
+      function setSessionCookieTest () {
+        if (testSessionCookie()) {
+          var myName = document.getElementById('f3CookieName').value;
+          var myValue = document.getElementById('f3CookieValue').value;
+          writeSessionCookie (myName, myValue);
+          alert ("Session cookie written");
+        }
+        else
+          alert ("Sorry - session cookies are currently disabled."); 
+      }
+      //setSessionCookieTest();
+
+      function readCookieTest () {
+        var myCookieName = document.getElementById('f5CookieName').value;
+        if (getCookieValue (myCookieName))
+          alert ('The value of the Cookie is "' + getCookieValue (myCookieName) + '"')
+        else
+          alert ("Cookie not found");
+      }
+      //readCookieTest();
+
+      $.ajax({
+        type: "POST",
+        url: 'http://localhost:9091/login',
+        data: {'email' : 'test@mala.com', 'password' : 'tjakkloen'},
+        success: function () {
+          alert("done!"+ this.getAllResponseHeaders());
+        }
+      });
+
+    </script>
+
+    <div class="alert">
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+      <strong>Warning!</strong> Best check yo self, you're not looking too good.
+    </div>
+  </body>
+</html>
